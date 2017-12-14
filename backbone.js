@@ -1980,9 +1980,13 @@
 
       // Don't include a trailing slash on the root.
       var rootPath = this.root;
+      /* Galaxy-specific hack; we want to always leave a trailing slash to
+       * support proxy-prefix usage and relative image links, as discussed in
+       * the issue at https://github.com/galaxyproject/galaxy/issues/4490
       if (fragment === '' || fragment.charAt(0) === '?') {
         rootPath = rootPath.slice(0, -1) || '/';
       }
+      */
       var url = rootPath + fragment;
 
       // Strip the fragment of the query and hash for matching.
